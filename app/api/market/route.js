@@ -9,30 +9,51 @@ function getDateRange(daysBack = 30) {
   const start = new Date();
   start.setDate(end.getDate() - daysBack);
 
-  const format = (date) => {
+  const formatBCB = (date) => {
     const dd = String(date.getDate()).padStart(2, '0');
     const mm = String(date.getMonth() + 1).padStart(2, '0');
     const yyyy = date.getFullYear();
     return `${dd}/${mm}/${yyyy}`;
   };
 
+  const formatPTAX = (date) => {
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const yyyy = date.getFullYear();
+    return `${mm}-${dd}-${yyyy}`;
+  };
+
   return {
-    start: format(start),
-    end: format(end),
+    startBCB: formatBCB(start),
+    endBCB: formatBCB(end),
+    startPTAX: formatPTAX(start),
+    endPTAX: formatPTAX(end),
   };
 }
 
 export async function GET() {
   try {
-    const { start, end } = getDateRange(30);
+    const { startBCB, endBCB, startPTAX, endPTAX } = getDateRange(30);
 
-    // Série 432 = Meta da taxa Selic anual
-    const selicUrl = `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=${start}&dataFinal=${end}`;
-    const dolarUrl = 'https://economia.awesomeapi.com.br/json/last/USD-BRL';
+    // Selic anual - série 432
+    const selicUrl =
+      `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=${startBCB}&dataFinal=${endBCB}`;
+
+    // Dólar comercial (PTAX) - fechamento por período
+    const dolarUrl =
+      `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/` +
+      `CotacaoMoedaPeriodo(moeda=@moeda,dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)` +
+      `?@moeda='USD'&@dataInicial='${startPTAX}'&@dataFinalCotacao='${endPTAX}'` +
+      `&$top=1&$orderby=dataHoraCotacao%20desc&$format=json`;
 
     const [selicRes, dolarRes] = await Promise.all([
       fetch(selicUrl, { cache: 'no-store' }),
-      fetch(dolarUrl, { cache: 'no-store' }),
+      fetch(dolarUrl, {
+        cache: 'no-store',
+        headers: {
+          Accept: 'application/json',
+        },
+      }),
     ]);
 
     let selic = { value: '—', note: 'Indisponível' };
@@ -57,17 +78,19 @@ export async function GET() {
 
     if (dolarRes.ok) {
       const dolarData = await dolarRes.json();
-      const usdbrl = dolarData?.USDBRL;
+      const lastDollar = dolarData?.value?.[0];
 
-      if (usdbrl?.bid) {
-        const bid = Number(usdbrl.bid);
+      if (lastDollar?.cotacaoVenda) {
+        const sale = Number(lastDollar.cotacaoVenda);
 
         dolar = {
-          value: `R$ ${formatNumberBR(bid, {
+          value: `R$ ${formatNumberBR(sale, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           })}`,
-          note: usdbrl.create_date || 'Atualizado agora',
+          note: lastDollar.dataHoraCotacao
+            ? `Atualizado em ${lastDollar.dataHoraCotacao}`
+            : 'Atualizado agora',
         };
       }
     }
@@ -89,7 +112,7 @@ export async function GET() {
       {
         selic: { value: '—', note: 'Falha ao carregar' },
         dolar: { value: '—', note: 'Falha ao carregar' },
-        ibov: { value: '—', note: 'API pendente' },
+        ibov: { value: '—', note: 'API de bolsa pendente' },
         cdi: { value: '—', note: 'API pendente' },
       },
       { status: 200 }
