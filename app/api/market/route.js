@@ -26,7 +26,8 @@ export async function GET() {
   try {
     const { start, end } = getDateRange(30);
 
-    const selicUrl = `https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados?formato=json&dataInicial=${start}&dataFinal=${end}`;
+    // Série 432 = Meta da taxa Selic anual
+    const selicUrl = `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=${start}&dataFinal=${end}`;
     const dolarUrl = 'https://economia.awesomeapi.com.br/json/last/USD-BRL';
 
     const [selicRes, dolarRes] = await Promise.all([
@@ -42,8 +43,13 @@ export async function GET() {
       const lastSelic = selicData?.[selicData.length - 1];
 
       if (lastSelic?.valor) {
+        const annualRate = Number(lastSelic.valor);
+
         selic = {
-          value: `${String(lastSelic.valor).replace('.', ',')}%`,
+          value: `${formatNumberBR(annualRate, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}%`,
           note: `Atualizado em ${lastSelic.data}`,
         };
       }
