@@ -39,7 +39,7 @@ export async function GET() {
     const selicUrl =
       `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=${startBCB}&dataFinal=${endBCB}`;
 
-    // Dólar comercial (PTAX) - fechamento por período
+    // Dólar comercial (PTAX)
     const dolarUrl =
       `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/` +
       `CotacaoMoedaPeriodo(moeda=@moeda,dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)` +
@@ -58,6 +58,7 @@ export async function GET() {
 
     let selic = { value: '—', note: 'Indisponível' };
     let dolar = { value: '—', note: 'Indisponível' };
+    let cdi = { value: '—', note: 'Referência de mercado' };
 
     if (selicRes.ok) {
       const selicData = await selicRes.json();
@@ -72,6 +73,17 @@ export async function GET() {
             maximumFractionDigits: 2,
           })}%`,
           note: `Atualizado em ${lastSelic.data}`,
+        };
+
+        // CDI de referência bem próximo da Selic
+        const cdiRef = Math.max(annualRate - 0.1, 0);
+
+        cdi = {
+          value: `${formatNumberBR(cdiRef, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}%`,
+          note: 'Referência aproximada',
         };
       }
     }
@@ -102,10 +114,7 @@ export async function GET() {
         value: '—',
         note: 'API de bolsa pendente',
       },
-      cdi: {
-        value: '—',
-        note: 'API pendente',
-      },
+      cdi,
     });
   } catch {
     return Response.json(
@@ -113,7 +122,7 @@ export async function GET() {
         selic: { value: '—', note: 'Falha ao carregar' },
         dolar: { value: '—', note: 'Falha ao carregar' },
         ibov: { value: '—', note: 'API de bolsa pendente' },
-        cdi: { value: '—', note: 'API pendente' },
+        cdi: { value: '—', note: 'Referência indisponível' },
       },
       { status: 200 }
     );
