@@ -58,22 +58,22 @@ const socialLinks = [
   {
     name: 'Instagram',
     href: 'https://instagram.com/pedrobraganholo',
-    icon: '📷',
+    icon: 'IG',
   },
   {
     name: 'LinkedIn',
     href: 'https://linkedin.com/in/pedro-henriqueinvest',
-    icon: '💼',
+    icon: 'IN',
   },
   {
     name: 'WhatsApp',
     href: 'https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20saber%20mais%20sobre%20seus%20serviços.',
-    icon: '💬',
+    icon: 'WA',
   },
   {
     name: 'E-mail',
-    href: 'mailto:pedrobraganholo@hotmail.com',
-    icon: '✉️',
+    href: 'mailto:pedrobraganholo10@gmail.com',
+    icon: 'EM',
   },
 ];
 
@@ -86,7 +86,7 @@ const marketData = [
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-[#06101f] pb-52 text-white">
+    <main className="min-h-screen bg-[#06101f] pb-48 text-white">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06101f]/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div>
@@ -126,7 +126,7 @@ export default function Page() {
       <section className="relative overflow-hidden border-b border-white/10 pt-6 md:pt-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(201,164,92,0.18),_transparent_30%),radial-gradient(circle_at_left,_rgba(59,130,246,0.12),_transparent_28%)]" />
 
-        <div className="relative mx-auto grid max-w-6xl gap-8 px-4 py-8 md:grid-cols-2 md:items-center md:gap-10 md:py-16">
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-10 md:grid-cols-2 md:items-center md:gap-14 md:py-20">
           <div className="order-1">
             <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-white/60 sm:text-xs">
               <span className="rounded-full border border-[#c9a45c]/40 px-3 py-1 text-[#c9a45c]">
@@ -137,7 +137,7 @@ export default function Page() {
               </span>
             </div>
 
-            <h1 className="max-w-xl text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
+            <h1 className="max-w-xl text-4xl font-semibold leading-[1.05] sm:text-5xl md:text-6xl">
               Pedro Henrique
               <span className="mt-3 block text-2xl font-normal leading-snug text-white/82 md:text-3xl">
                 Assessoria de investimentos com visão estratégica
@@ -145,9 +145,9 @@ export default function Page() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8 md:text-xl">
-              Eu ajudo você a sair do improviso financeiro e construir patrimônio
-              com estratégia, atendimento próximo e acesso a soluções integradas
-              em investimentos, crédito, proteção patrimonial e gestão financeira.
+              Eu ajudo investidores e empresários a organizar, proteger e expandir
+              seu patrimônio com estratégia, atendimento próximo e acesso a soluções
+              integradas em investimentos, crédito, proteção patrimonial e gestão financeira.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -167,7 +167,7 @@ export default function Page() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#c9a45c]/50 px-5 py-4 text-base font-semibold text-white transition hover:bg-white/5 whitespace-nowrap"
               >
-                Abrir conta no BTG Pactual
+                Abrir conta no BTG
                 <span>→</span>
               </a>
             </div>
@@ -180,7 +180,7 @@ export default function Page() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.name}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg text-white/80 transition hover:border-[#c9a45c]/50 hover:text-[#c9a45c]"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[13px] font-semibold text-white/80 transition hover:border-[#c9a45c]/50 hover:text-[#c9a45c]"
                 >
                   {link.icon}
                 </a>
@@ -194,7 +194,7 @@ export default function Page() {
               <img
                 src="/pedro.jpg"
                 alt="Pedro Henrique"
-                className="relative h-[420px] w-full rounded-[1.5rem] object-cover sm:h-[500px]"
+                className="relative h-[440px] w-full rounded-[1.5rem] object-cover sm:h-[520px]"
               />
             </div>
           </div>
@@ -210,8 +210,8 @@ export default function Page() {
             Panorama de mercado
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-white/70">
-            Um bloco visual de autoridade para destacar indicadores relevantes.
-            Depois, se você quiser, a gente conecta isso a uma API.
+            Indicadores relevantes para contexto patrimonial e financeiro. Depois,
+            essa área pode ser conectada a uma API.
           </p>
         </div>
 
@@ -242,8 +242,8 @@ export default function Page() {
             Soluções que posso oferecer
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-white/70">
-            Um ecossistema de soluções para atender pessoa física e jurídica com
-            foco em crescimento, organização, proteção e construção de patrimônio.
+            Um ecossistema de soluções para atender pessoa física e jurídica com foco
+            em crescimento, organização, proteção e construção de patrimônio.
           </p>
         </div>
 
@@ -295,15 +295,14 @@ export default function Page() {
 
             <p className="mt-5 text-lg leading-8 text-white/75">
               Meu foco é ajudar clientes a tomar decisões financeiras melhores,
-              com clareza, planejamento e acesso a soluções de alto nível. O
-              objetivo não é apenas indicar produtos, mas estruturar caminhos
-              para crescimento, proteção e eficiência financeira.
+              com clareza, planejamento e acesso a soluções de alto nível. O objetivo
+              não é apenas indicar produtos, mas estruturar caminhos para crescimento,
+              proteção e eficiência financeira.
             </p>
 
             <p className="mt-4 text-lg leading-8 text-white/75">
-              Você conta com um atendimento personalizado e com a força de um
-              ecossistema que conecta investimentos, crédito, planejamento
-              patrimonial e gestão financeira.
+              Você conta com um atendimento personalizado e com a força de um ecossistema
+              que conecta investimentos, crédito, planejamento patrimonial e gestão financeira.
             </p>
           </div>
 
@@ -350,8 +349,7 @@ export default function Page() {
                 Vamos conversar sobre seu momento financeiro?
               </h2>
               <p className="mt-4 text-white/75">
-                Fale comigo para entender qual solução faz mais sentido para sua
-                realidade.
+                Fale comigo para entender qual solução faz mais sentido para sua realidade.
               </p>
             </div>
 
@@ -372,7 +370,7 @@ export default function Page() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 font-semibold text-white"
               >
-                Abrir conta no BTG Pactual
+                Abrir conta no BTG
                 <span>→</span>
               </a>
             </div>
@@ -381,10 +379,10 @@ export default function Page() {
       </section>
 
       <footer className="border-t border-white/10 px-4 py-8 text-center text-sm text-white/55">
-        © 2026 Pedro Henrique • Assessoria de Investimentos
+        © 2026 Pedro Henrique • Assessoria de Investimentos • Atendimento personalizado para investidores e empresários
       </footer>
 
-      <div className="fixed bottom-6 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 rounded-full border border-white/10 bg-[#081221]/95 p-2 shadow-2xl shadow-black/30 backdrop-blur">
+      <div className="fixed bottom-5 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 rounded-full border border-white/10 bg-[#081221]/95 p-2 shadow-2xl shadow-black/30 backdrop-blur">
         <div className="grid grid-cols-2 gap-2">
           <a
             href="https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20falar%20com%20você."
