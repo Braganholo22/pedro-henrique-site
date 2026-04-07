@@ -199,7 +199,7 @@ export default function Page() {
           <div className="relative z-10 max-w-2xl">
             <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-white/60 sm:text-xs">
               <span className="rounded-full border border-[#c9a45c]/40 px-3 py-1 text-[#c9a45c]">
-                Vidda Capital
+                Vidda Investments
               </span>
               <span className="rounded-full border border-white/10 px-3 py-1">
                 BTG Pactual
