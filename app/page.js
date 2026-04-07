@@ -180,11 +180,23 @@ export default function Page() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden border-b border-white/10 pt-6 md:pt-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(201,164,92,0.18),_transparent_30%),radial-gradient(circle_at_left,_rgba(59,130,246,0.12),_transparent_28%)]" />
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[#06101f]" />
 
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-10 md:grid-cols-[1.05fr_0.95fr] md:items-center md:gap-10 md:py-20">
-          <div className="order-1">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(201,164,92,0.14),_transparent_28%),radial-gradient(circle_at_left,_rgba(59,130,246,0.10),_transparent_24%)]" />
+
+        <div className="absolute inset-y-0 right-0 w-full md:w-[58%]">
+          <img
+            src="/pedro.jpg"
+            alt="Pedro Henrique"
+            className="h-full w-full object-cover object-center opacity-95"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06101f] via-[#06101f]/72 to-transparent md:from-[#06101f] md:via-[#06101f]/48 md:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06101f]/70 via-transparent to-[#06101f]/18" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 py-14 md:py-24">
+          <div className="relative z-10 max-w-2xl">
             <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-white/60 sm:text-xs">
               <span className="rounded-full border border-[#c9a45c]/40 px-3 py-1 text-[#c9a45c]">
                 Vida Capital
@@ -194,20 +206,21 @@ export default function Page() {
               </span>
             </div>
 
-            <h1 className="max-w-xl text-4xl font-semibold leading-[1.05] sm:text-5xl md:text-6xl">
+            <h1 className="max-w-xl text-4xl font-semibold leading-[1.02] sm:text-5xl md:text-7xl">
               Pedro Henrique
-              <span className="mt-3 block text-2xl font-normal leading-snug text-white/82 md:text-3xl">
+              <span className="mt-3 block text-2xl font-normal leading-snug text-white/88 md:text-3xl">
                 Assessoria de investimentos com visão estratégica
               </span>
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8 md:text-xl">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg md:text-xl">
               Eu ajudo investidores e empresários a organizar, proteger e expandir
               seu patrimônio com estratégia, atendimento próximo e acesso a soluções
-              integradas em investimentos, crédito, proteção patrimonial e gestão financeira.
+              integradas em investimentos, crédito, proteção patrimonial e gestão
+              financeira.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href="https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20falar%20com%20você."
                 target="_blank"
@@ -222,14 +235,14 @@ export default function Page() {
                 href="https://www.btgpactual.com/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#c9a45c]/50 px-5 py-4 text-base font-semibold text-white transition hover:bg-white/5 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#c9a45c]/50 bg-[#06101f]/35 px-5 py-4 text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/5 whitespace-nowrap"
               >
                 Abrir conta no BTG
                 <span>→</span>
               </a>
             </div>
 
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-6 flex items-center gap-3">
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
@@ -237,7 +250,7 @@ export default function Page() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.name}
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-[#c9a45c]/50 hover:bg-white/10"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-[#0b1629]/75 backdrop-blur-sm transition hover:border-[#c9a45c]/50 hover:bg-white/10"
                 >
                   <img
                     src={link.iconSrc}
@@ -247,16 +260,6 @@ export default function Page() {
                 </a>
               ))}
             </div>
-          </div>
-
-          <div className="order-2 relative flex justify-center md:justify-end">
-            <div className="absolute right-6 top-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,_rgba(201,164,92,0.20),_transparent_65%)] blur-3xl md:h-[420px] md:w-[420px]" />
-
-            <img
-              src="/pedro.jpg"
-              alt="Pedro Henrique"
-              className="relative z-10 h-[500px] w-auto max-w-full object-contain sm:h-[580px] md:h-[700px]"
-            />
           </div>
         </div>
       </section>
@@ -301,8 +304,8 @@ export default function Page() {
             Soluções que posso oferecer
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-white/70">
-            Um ecossistema de soluções para atender pessoa física e jurídica com foco
-            em crescimento, organização, proteção e construção de patrimônio.
+            Um ecossistema de soluções para atender pessoa física e jurídica com
+            foco em crescimento, organização, proteção e construção de patrimônio.
           </p>
         </div>
 
@@ -360,8 +363,9 @@ export default function Page() {
             </p>
 
             <p className="mt-4 text-lg leading-8 text-white/75">
-              Você conta com um atendimento personalizado e com a força de um ecossistema
-              que conecta investimentos, crédito, planejamento patrimonial e gestão financeira.
+              Você conta com um atendimento personalizado e com a força de um
+              ecossistema que conecta investimentos, crédito, planejamento
+              patrimonial e gestão financeira.
             </p>
           </div>
 
@@ -408,7 +412,8 @@ export default function Page() {
                 Vamos conversar sobre seu momento financeiro?
               </h2>
               <p className="mt-4 text-white/75">
-                Fale comigo para entender qual solução faz mais sentido para sua realidade.
+                Fale comigo para entender qual solução faz mais sentido para sua
+                realidade.
               </p>
             </div>
 
