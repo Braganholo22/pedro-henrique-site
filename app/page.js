@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 const services = [
   {
     icon: '💼',
@@ -58,33 +60,88 @@ const socialLinks = [
   {
     name: 'Instagram',
     href: 'https://instagram.com/pedrobraganholo',
-    icon: 'IG',
+    iconSrc: 'https://cdn.simpleicons.org/instagram/FFFFFF',
   },
   {
     name: 'LinkedIn',
     href: 'https://linkedin.com/in/pedro-henriqueinvest',
-    icon: 'IN',
+    iconSrc: 'https://cdn.simpleicons.org/linkedin/FFFFFF',
   },
   {
     name: 'WhatsApp',
     href: 'https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20saber%20mais%20sobre%20seus%20serviços.',
-    icon: 'WA',
+    iconSrc: 'https://cdn.simpleicons.org/whatsapp/FFFFFF',
   },
   {
     name: 'E-mail',
     href: 'mailto:pedrobraganholo10@gmail.com',
-    icon: 'EM',
+    iconSrc: 'https://cdn.simpleicons.org/gmail/FFFFFF',
   },
 ];
 
-const marketData = [
-  { label: 'Selic', value: '10,50%', note: 'Taxa básica' },
-  { label: 'Dólar', value: 'R$ 5,24', note: 'Referência visual' },
-  { label: 'Ibovespa', value: '128.450', note: 'Referência visual' },
-  { label: 'CDI', value: '10,40%', note: 'Referência visual' },
+const initialMarketData = [
+  { label: 'Selic', value: '—', note: 'Carregando...' },
+  { label: 'Dólar', value: '—', note: 'Carregando...' },
+  { label: 'Ibovespa', value: '—', note: 'Em integração' },
+  { label: 'CDI', value: '—', note: 'Em integração' },
 ];
 
 export default function Page() {
+  const [marketData, setMarketData] = useState(initialMarketData);
+
+  useEffect(() => {
+    let mounted = true;
+
+    async function loadMarket() {
+      try {
+        const response = await fetch('/api/market', { cache: 'no-store' });
+        const data = await response.json();
+
+        if (!mounted) return;
+
+        setMarketData([
+          {
+            label: 'Selic',
+            value: data.selic?.value ?? '—',
+            note: data.selic?.note ?? 'Indisponível',
+          },
+          {
+            label: 'Dólar',
+            value: data.dolar?.value ?? '—',
+            note: data.dolar?.note ?? 'Indisponível',
+          },
+          {
+            label: 'Ibovespa',
+            value: data.ibov?.value ?? '—',
+            note: data.ibov?.note ?? 'Em integração',
+          },
+          {
+            label: 'CDI',
+            value: data.cdi?.value ?? '—',
+            note: data.cdi?.note ?? 'Em integração',
+          },
+        ]);
+      } catch {
+        if (!mounted) return;
+
+        setMarketData([
+          { label: 'Selic', value: '—', note: 'Falha ao atualizar' },
+          { label: 'Dólar', value: '—', note: 'Falha ao atualizar' },
+          { label: 'Ibovespa', value: '—', note: 'Em integração' },
+          { label: 'CDI', value: '—', note: 'Em integração' },
+        ]);
+      }
+    }
+
+    loadMarket();
+    const interval = setInterval(loadMarket, 60000);
+
+    return () => {
+      mounted = false;
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#06101f] pb-48 text-white">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06101f]/95 backdrop-blur">
@@ -180,9 +237,13 @@ export default function Page() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.name}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[13px] font-semibold text-white/80 transition hover:border-[#c9a45c]/50 hover:text-[#c9a45c]"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-[#c9a45c]/50 hover:bg-white/10"
                 >
-                  {link.icon}
+                  <img
+                    src={link.iconSrc}
+                    alt={link.name}
+                    className="h-5 w-5 object-contain"
+                  />
                 </a>
               ))}
             </div>
@@ -210,8 +271,7 @@ export default function Page() {
             Panorama de mercado
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-white/70">
-            Indicadores relevantes para contexto patrimonial e financeiro. Depois,
-            essa área pode ser conectada a uma API.
+            Indicadores relevantes para contexto patrimonial e financeiro.
           </p>
         </div>
 
