@@ -249,14 +249,18 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="order-2">
-            <div className="relative mx-auto max-w-sm overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl shadow-black/30 md:max-w-md">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#0e1b31] via-transparent to-[#c9a45c]/10" />
-              <img
-                src="/pedro.jpg"
-                alt="Pedro Henrique"
-                className="relative h-[440px] w-full rounded-[1.5rem] object-cover sm:h-[520px]"
-              />
+          <div className="order-2 relative">
+            <div className="absolute -inset-6 rounded-full bg-[radial-gradient(circle,_rgba(201,164,92,0.16),_transparent_55%)] blur-3xl" />
+            <div className="relative mx-auto max-w-sm md:max-w-md">
+              <div className="rounded-[2.2rem] border border-white/10 bg-white/[0.04] p-3 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+                <div className="overflow-hidden rounded-[1.8rem] border border-white/5 bg-[#0b1629]">
+                  <img
+                    src="/pedro.jpg"
+                    alt="Pedro Henrique"
+                    className="h-[500px] w-full object-cover object-center sm:h-[580px] md:h-[620px]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
