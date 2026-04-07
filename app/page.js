@@ -183,7 +183,7 @@ export default function Page() {
       <section className="relative overflow-hidden border-b border-white/10 pt-6 md:pt-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(201,164,92,0.18),_transparent_30%),radial-gradient(circle_at_left,_rgba(59,130,246,0.12),_transparent_28%)]" />
 
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-10 md:grid-cols-2 md:items-center md:gap-14 md:py-20">
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-10 md:grid-cols-[1.05fr_0.95fr] md:items-center md:gap-10 md:py-20">
           <div className="order-1">
             <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-white/60 sm:text-xs">
               <span className="rounded-full border border-[#c9a45c]/40 px-3 py-1 text-[#c9a45c]">
@@ -249,19 +249,14 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="order-2 relative">
-            <div className="absolute -inset-6 rounded-full bg-[radial-gradient(circle,_rgba(201,164,92,0.16),_transparent_55%)] blur-3xl" />
-            <div className="relative mx-auto max-w-sm md:max-w-md">
-              <div className="rounded-[2.2rem] border border-white/10 bg-white/[0.04] p-3 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
-                <div className="overflow-hidden rounded-[1.8rem] border border-white/5 bg-[#0b1629]">
-                  <img
-                    src="/pedro.jpg"
-                    alt="Pedro Henrique"
-                    className="h-[500px] w-full object-cover object-center sm:h-[580px] md:h-[620px]"
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="order-2 relative flex justify-center md:justify-end">
+            <div className="absolute right-6 top-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,_rgba(201,164,92,0.20),_transparent_65%)] blur-3xl md:h-[420px] md:w-[420px]" />
+
+            <img
+              src="/pedro.jpg"
+              alt="Pedro Henrique"
+              className="relative z-10 h-[500px] w-auto max-w-full object-contain sm:h-[580px] md:h-[700px]"
+            />
           </div>
         </div>
       </section>
