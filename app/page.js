@@ -199,7 +199,7 @@ export default function Page() {
           <div className="relative z-10 max-w-2xl">
             <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-white/60 sm:text-xs">
               <span className="rounded-full border border-[#c9a45c]/40 px-3 py-1 text-[#c9a45c]">
-                Vidda Investments
+                Vida Capital
               </span>
               <span className="rounded-full border border-white/10 px-3 py-1">
                 BTG Pactual
@@ -222,26 +222,26 @@ export default function Page() {
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
-  href="https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20falar%20com%20você."
-  target="_blank"
-  rel="noreferrer"
-  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9a45c] px-7 py-4 text-[17px] font-semibold text-[#06101f] shadow-[0_10px_30px_rgba(201,164,92,0.28)] transition duration-300 hover:scale-[1.02] hover:brightness-105"
->
-  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/85 text-sm text-[#06101f]">
-    💬
-  </span>
-  Falar comigo no WhatsApp
-</a>
+                href="https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20falar%20com%20você."
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9a45c] px-7 py-4 text-[17px] font-semibold text-[#06101f] shadow-[0_10px_30px_rgba(201,164,92,0.28)] transition duration-300 hover:scale-[1.02] hover:brightness-105"
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/85 text-sm text-[#06101f]">
+                  💬
+                </span>
+                Falar comigo no WhatsApp
+              </a>
 
               <a
-  href="https://www.btgpactual.com/"
-  target="_blank"
-  rel="noreferrer"
-  className="inline-flex items-center justify-center gap-3 rounded-full border border-[#c9a45c]/40 bg-[#091425]/55 px-6 py-4 text-[17px] font-semibold text-white backdrop-blur-md transition duration-300 hover:border-[#c9a45c]/70 hover:bg-white/5 whitespace-nowrap"
->
-  Abrir conta no BTG
-  <span className="text-[#c9a45c]">→</span>
-</a>
+                href="https://www.btgpactual.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-full border border-[#c9a45c]/40 bg-[#091425]/55 px-6 py-4 text-[17px] font-semibold text-white backdrop-blur-md transition duration-300 hover:border-[#c9a45c]/70 hover:bg-white/5 whitespace-nowrap"
+              >
+                Abrir conta no BTG
+                <span className="text-[#c9a45c]">→</span>
+              </a>
             </div>
 
             <div className="mt-6 flex items-center gap-3">
@@ -419,31 +419,28 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="fixed bottom-5 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 rounded-full border border-white/10 bg-[#081221]/92 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-xl">
-  <div className="grid grid-cols-2 gap-2">
-    <a
-      href="https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20falar%20com%20você."
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex items-center justify-center gap-3 rounded-full bg-[#22c55e] px-4 py-3 text-[18px] font-semibold text-[#06101f] transition duration-300 hover:brightness-105"
-    >
-      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/80 text-xs text-[#06101f]">
-        💬
-      </span>
-      WhatsApp
-    </a>
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20falar%20sobre%20assessoria."
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#c9a45c] px-6 py-4 font-semibold text-[#06101f]"
+              >
+                <span>💬</span>
+                Falar no WhatsApp
+              </a>
 
-    <a
-      href="https://www.btgpactual.com/"
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9a45c] px-4 py-3 text-[18px] font-semibold text-[#06101f] transition duration-300 hover:brightness-105"
-    >
-      BTG
-      <span>→</span>
-    </a>
-  </div>
-</div>
+              <a
+                href="https://www.btgpactual.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 font-semibold text-white"
+              >
+                Abrir conta no BTG
+                <span>→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -451,15 +448,17 @@ export default function Page() {
         © 2026 Pedro Henrique • Assessoria de Investimentos • Atendimento personalizado para investidores e empresários
       </footer>
 
-      <div className="fixed bottom-5 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 rounded-full border border-white/10 bg-[#081221]/95 p-2 shadow-2xl shadow-black/30 backdrop-blur">
+      <div className="fixed bottom-5 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 rounded-full border border-white/10 bg-[#081221]/92 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-xl">
         <div className="grid grid-cols-2 gap-2">
           <a
             href="https://wa.me/5517991308840?text=Olá%20Pedro,%20quero%20falar%20com%20você."
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 font-semibold text-[#06101f]"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-[#22c55e] px-4 py-3 text-[18px] font-semibold text-[#06101f] transition duration-300 hover:brightness-105"
           >
-            <span>💬</span>
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/80 text-xs text-[#06101f]">
+              💬
+            </span>
             WhatsApp
           </a>
 
@@ -467,7 +466,7 @@ export default function Page() {
             href="https://www.btgpactual.com/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#c9a45c] px-4 py-3 font-semibold text-[#06101f]"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9a45c] px-4 py-3 text-[18px] font-semibold text-[#06101f] transition duration-300 hover:brightness-105"
           >
             BTG
             <span>→</span>
